@@ -1,0 +1,28 @@
+{
+  "cards": [
+    {
+      "id": "22222222-eeee-4ccc-8fff-444444444444",
+      "pin": "4321",
+      "cvv": "654",
+      "type": "VIRTUAL",
+      "status": "ACTIVE",
+      "accountId": "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee",
+      "cardNumber": "4333333333333333",
+      "cardHolder": "SERGEY ZVEREV",
+      "expiryDate": "2027-12-31",
+      "paymentSystem": "VISA"
+    },
+    {
+      "id": "33333333-dddd-4eee-8fff-444444444444",
+      "pin": "7876",
+      "cvv": "689",
+      "type": "PHYSICAL",
+      "status": "ACTIVE",
+      "accountId": "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee",
+      "cardNumber": "5500000000000004",
+      "cardHolder": "SERGEY ZVEREV",
+      "expiryDate": "2028-06-30",
+      "paymentSystem": "MASTERCARD"
+    }
+  ]
+}
