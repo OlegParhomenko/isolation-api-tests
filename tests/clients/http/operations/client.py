@@ -25,11 +25,19 @@ class OperationsHTTPTestClient(HTTPTestClient):
     def get_operation_api(self, operation_id: uuid.UUID) -> Response:
         return self.get(f'{APITestRoutes.OPERATIONS}/{operation_id}')
 
-    def get_operations(self, query_params: GetOperationsQueryTestSchema) -> GetOperationsResponseTestSchema:
-        params = QueryParams(**query_params.model_dump(mode='json', by_alias=True))
+
+    def get_operations(
+            self,
+            user_id: uuid.UUID,
+            card_id: uuid.UUID | None = None,
+            account_id: uuid.UUID | None = None,
+    ) -> GetOperationsResponseTestSchema:
+        query_shema = GetOperationsQueryTestSchema(user_id=user_id, card_id=card_id, account_id=account_id)
+        params = QueryParams(**query_shema.model_dump(mode='json', by_alias=True))
         response = self.get_operations_api(params)
         response.raise_for_status()
         return GetOperationsResponseTestSchema.model_validate_json(response.text)
+
 
     def get_operation(self, operation_id: uuid.UUID) -> GetOperationResponseTestSchema:
         response = self.get_operation_api(operation_id)
