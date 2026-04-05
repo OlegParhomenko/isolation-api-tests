@@ -39,8 +39,8 @@ class OperationsGRPCTestClient(GRPCTestClient):
     def get_operations(
         self,
         user_id: uuid.UUID,
-        card_id: uuid.UUID,
-        account_id: uuid.UUID
+        card_id: uuid.UUID | None = None,
+        account_id: uuid.UUID | None = None,
     ) -> GetOperationsResponse:
         request = GetOperationsRequest(
             user_id=str(user_id),
